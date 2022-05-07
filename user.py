@@ -43,3 +43,10 @@ class User:
         results = connectToMySQL('users').query_db(query, data)
         print(f'results from update query {results}')
         return results
+
+    # add delete user
+    @classmethod
+    def delete_user(cls, data):
+        query = 'delete from users where id = %(id)s;'
+        return connectToMySQL('users').query_db(query, data)
+    

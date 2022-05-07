@@ -31,13 +31,14 @@
             <td>{{u.last_name}}</td>
             <td>{{u.email}}</td>
             <td>{{u.created_at}}</td>
-            <td><a href="/oneUser/{{u.id}}">Show</a> | 
-                <a href="/editUser/{{u.id}}">Edit</a>| Delete</td>
+            <td><a href="/user/read/{{u.id}}">Show</a> | 
+                <a href="/user/edit/{{u.id}}">Edit</a> | 
+                <a href="/user/delete/{{u.id}}">Delete</a></td>
         </tr>
     {% endfor %}
     </table>
     
-    <p><a href="create">Create a new User!</a></p>
+    <p><a href="user/new">Create a new User!</a></p>
 
 </body>
 </html>

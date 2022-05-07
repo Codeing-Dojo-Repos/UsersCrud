@@ -13,5 +13,9 @@
     <p>Email: {{user.email}}</p>
     <p>Created On: {{user.created_at}}</p>
     <p>Last Updated: {{user.updated_at}}</p>
+    <p>
+        <a href="/user/edit/{{user.id}}">Edit</a> | 
+        <a href="/user/delete/{{user.id}}">Delete</a>
+    </p>
 </body>
 </html>

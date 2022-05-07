@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>read all</title>
 </head>
+<style>
+    table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td, th{
+        padding: 5px 15px 5px 20px;
+    }
+</style>
 <body>
 
     <table>
@@ -13,12 +22,17 @@
             <th>First</th>
             <th>Last</th>
             <th>Email</th>
+            <th>Created At</th>
+            <th>Actions</th>
         </tr>
     {% for u in users: %}
         <tr>
             <td>{{u.first_name}}</td>
             <td>{{u.last_name}}</td>
             <td>{{u.email}}</td>
+            <td>{{u.created_at}}</td>
+            <td><a href="/oneUser/{{u.id}}">Show</a> | 
+                <a href="/editUser/{{u.id}}">Edit</a>| Delete</td>
         </tr>
     {% endfor %}
     </table>

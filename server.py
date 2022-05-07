@@ -22,7 +22,32 @@ def create_user():
     }
     User.save(data)
     return redirect('/read')
-    
+
+@app.route('/oneUser/<int:id>')
+def get_one_user(id):
+    print('hit get_one_user route')
+    data = { 'id': id }
+    user = User.get_user_by_id(data)
+    return render_template('oneUser.html', user = user[0])
+
+@app.route('/editUser/<int:id>')
+def edit_one_user(id):
+    print('hit edit_one_user')
+    data = { 'id': id }
+    user = User.get_user_by_id(data)
+    return render_template('editUser.html', user = user[0])
+
+@app.route('/editUser2/<int:id>', methods=['POST'])
+def edit_one_user2(id):
+    print('hit edit_one_user2')
+    data = {
+        'id':id,
+        'first_name':request.form['fname'],
+        'last_name':request.form['lname'],
+        'email': request.form['email']
+    }
+    User.update_user(data)
+    return redirect('/read')
 
 if __name__=="__main__":  
     app.run(debug=True)

@@ -29,3 +29,17 @@ class User:
         results = connectToMySQL('users').query_db(query, data)
         print(results)
         return results
+
+    @classmethod
+    def get_user_by_id(cls, data):
+        query = 'select * from users where id = %(id)s;'
+        results = connectToMySQL('users').query_db(query, data)
+        print(f'results from query {results}')
+        return results
+
+    @classmethod
+    def update_user(cls, data):
+        query = 'update users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s where id = %(id)s;'
+        results = connectToMySQL('users').query_db(query, data)
+        print(f'results from update query {results}')
+        return results
